@@ -6,3 +6,4 @@ import { cube } from "./utils.js"  // for export only
 const result = cube(5)  // for export only
 
 console.log(result)
+ 
