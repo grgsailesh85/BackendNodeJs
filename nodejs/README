@@ -16,3 +16,5 @@
 - Callbacks, promises, async/await
 - modules (HTTP, file system, URL, path)
 - Server
+
+## HTTP Methods
