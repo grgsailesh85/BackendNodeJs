@@ -41,7 +41,72 @@
 2. 400 - range => Error by client
 3. 500 - range => Error by server
 
-## package to use the variable of .env
-- npm install dotenv
-
+## package required for MERN
+- npm install dotenv  // package to use variable of .env file
 - npm install body-parser
+
+
+
+## MongoDB
+- Non-relational Database
+- Collection (table)
+- Document (Row)
+- Field (Column)
+
+## MongoDB tools
+- Shell -> Terminal
+- Compass -> Local GUI
+- Atlas -> Global URL 
+
+## MongoDB Commands
+1. mongosh  =>  Connect with local MongoDB instance
+2. show dbs => show all database
+3. cls => clear screen
+4. use <dbname> => switch to a database or create new database if does not exist
+5. show collections => show list of colections (table) in a database
+
+users
+id, name, age, address, phone
+1, sailesh, 26, chitwan, 9811111
+2, gurung, 25, null, null
+
+## MongoDB Query
+**Create**
+1. insertOne
+- db.<collectionName>.insertOne()
+- for eg:- db.users.insertOne({name:"John"})
+- db.users.insertOne({name:"Ram", age:25, address:"Chitwan"})
+
+2. insertMany
+- db.<collectionName>.insertMany()
+- for eg:- db.users.insertMany([{name:"Sailesh"},{name:"Gurung"}])
+
+**Read**
+1. find()
+- db.<collectionName>.find()
+- for eg:- db.users.find()
+
+2. find(<filterObject>)
+- db.users.find({name:"John"})
+
+**Update**
+1. updateOne()
+- db.<collectionName>.updateOne()
+- for eg:- db.users.updateOne({name:"Ram"}, {$set: {age: 26}})
+
+
+**Delete**
+1. deleteOne()
+- db.<collectionName>.deleteOne()
+- for eg:- db.users.deleteOne({name:"Ram"})
+
+
+**Complex Filter**
+1. $gt/$gte => greater than or greater than equal to
+- db.users.find({age: {$gt:20}})
+
+2. $lt/$lte => lesser then or lesser then equal to
+- db.users.find({age: {$lt:20}})
+
+3. $eq/$ne => equal to or not equal to
+
