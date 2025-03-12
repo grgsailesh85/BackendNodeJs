@@ -1,11 +1,17 @@
 ## Folder Structure
 
-📁 your-repo
- ┣ 📂 src
- ┃ ┣ 📂 controllers
- ┃ ┣ 📂 models
- ┃ ┣ 📂 routes
- ┃ ┣ 📜 server.js
- ┣ 📜 .env
- ┣ 📜 package.json
- ┣ 📜 README.md
+```
+src/
+│-- server.js                # Main entry point of the application
+|-- config/
+|   ├── database.js         # Connecting with the mongodb server
+|-- modules/
+|   ├── product.js         # Connecting with the mongodb server
+│-- route/
+│   ├── productroute.js   # Routes for product-related API endpoints
+│-- controller/
+│   ├── productcontroller.js   # Handles incoming requests and responses
+│-- service/
+│   ├── productservices.js   # Business logic for product operations
+```
+
