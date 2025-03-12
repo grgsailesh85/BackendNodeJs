@@ -2,33 +2,33 @@
 ```
 📁Repo
 │
-├── 📁src
+├──📁src
 │    │
-│    ├── 📜app.js or server.js          # Main entry point of the application
+│    ├──📜app.js or server.js          # Main entry point of the application
 │    │
-│    ├── 📁config/
+│    ├──📁config/
 │    │    │
-│    |    ├── 📜database.js             # Connecting with the mongodb server
+│    |    ├──📜database.js             # Connecting with the mongodb server
 │    │    
-│    ├── 📁modules/
+│    ├──📁modules/
 │    │    │
-│    |    ├── 📜product.js              # Connecting with the mongodb server
+│    |    ├──📜product.js              # Connecting with the mongodb server
 │    │     
-│    ├── 📁route/
+│    ├──📁route/
 │    │    │
-│    │    ├── 📜productroute.js         # Routes for product-related API endpoints
+│    │    ├──📜productroute.js         # Routes for product-related API endpoints
 │    │    
-│    ├── 📁controller/
+│    ├──📁controller/
 │    │    │
-│    │    ├── 📜productcontroller.js    # Handles incoming requests and responses
+│    │    ├──📜productcontroller.js    # Handles incoming requests and responses
 │    │
-│    ├── 📁service/
+│    ├──📁service/
 │         │
-│         ├── 📜productservices.js      # Business logic for product operations
+│         ├──📜productservices.js      # Business logic for product operations
 │
-├── 📜.env
+├──📜.env
 │
-├── 📜package.json
+├──📜package.json
 │
-├── 📜README.md
+├──📜README.md
 ```
