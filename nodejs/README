@@ -18,7 +18,7 @@
 
 ## HTTP Methods
 - CRUD operation (Create, Read, Update, Delete)
-1. GET (Read)
+1. GET (Read) 
 2. POST (Create)
 3. PUT (Update)
 4. DELETE (Delete)
@@ -29,3 +29,19 @@
 3. URL
 4. Event
 5. HTTP
+
+## Express
+- fast
+- unopinionated
+- minimalist web framework
+- install express:-  npm install express
+
+## status
+1. 200 - range (range of 200, eg:- 201, 202, 203....) => Success
+2. 400 - range => Error by client
+3. 500 - range => Error by server
+
+## package to use the variable of .env
+- npm install dotenv
+
+- npm install body-parser

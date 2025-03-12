@@ -1,27 +1,34 @@
-// HTTP module - create server
+// HTTP module - Server create
 // npm install -D nodemon
 
 import http from "http";
 
 const PORT = 5000;
 
-// Request - user sends / request to server
-// Response - Server sends to user
+// Request - User sends/requests to Server
+// Response - Server sends to User
 const app = http.createServer(function (request, response) {
-  //content-type : text/plain
-  //content-type : text/html
-  response.writeHead(200, { "content-type": "text/html" });
-  if ((request.url == "/")) {
-    return response.end("<h1>Hello World</h1>");
+  if (request.url == "/") {
+    //content-type: text/html
+    //content-type: text/plain
+    response.writeHead(200, { "content-type": "text/html" });
+    return response.end("<h1>Home page</h1>");
   } else if (request.url == "/about") {
-    response.end("<h1>About Page</h1>");
+    return response.end("<h1>About page</h1>");
   } else if (request.url == "/posts") {
-    return response.end("<h1>Post Page</h1>");
+    if (request.method == "POST") {
+      return response.end("<h1>Create Posts</h1>");
+    } else if (request.method == "PUT") {
+      return response.end("<h1>Update Posts</h1>");
+    }
+
+    return response.end("<h1>Posts page</h1>");
   } else {
-    return response.end("<h1>Page not Found</h1>")
+    response.writeHead(404, { "content-type": "text/html" });
+    return response.end("<h1>Page not found</h1>");
   }
 });
 
 app.listen(PORT, () => {
-  console.log("Server is runnning at port 5000...");
+  console.log("Server running at port 5000...");
 });
