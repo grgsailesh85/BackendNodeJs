@@ -2,29 +2,33 @@
 ```
 📁Repo
 │
-├──📁src
+├──📁node_modules                                     # Installed dependencies (from npm)
+│
+├──📁src                                              # Main source code
 │    │
-│    ├──📜app.js or server.js          # Main entry point of the application
+│    ├──📜app.js                                      # Main Express app file
 │    │
-│    ├──📁config/
+│    ├──📜server.js                                   # Entry point (Starts the server)
+│    │
+│    ├──📁config/                                     # Connecting with the mongodb server
 │    │    │
-│    |    ├──📜database.js             # Connecting with the mongodb server
+│    |    ├──📜database.js                           
 │    │    
-│    ├──📁modules/
+│    ├──📁models/                                    # Defines database structure
 │    │    │
-│    |    ├──📜product.js              # Connecting with the mongodb server
+│    |    ├──📜product.js          
 │    │     
-│    ├──📁route/
+│    ├──📁route/                                     # Defines API paths
 │    │    │
-│    │    ├──📜productroute.js         # Routes for product-related API endpoints
+│    │    ├──📜productroute.js                       # Routes for product-related API endpoints
 │    │    
-│    ├──📁controller/
+│    ├──📁controller/                                # Defines API paths
 │    │    │
-│    │    ├──📜productcontroller.js    # Handles incoming requests and responses
+│    │    ├──📜productcontroller.js                  # Handles incoming requests and responses
 │    │
-│    ├──📁service/
+│    ├──📁service/                                   # Business logic & external API calls 
 │         │
-│         ├──📜productservices.js      # Business logic for product operations
+│         ├──📜productservices.js                    # Business logic for product operations
 │
 ├──📜.env
 │
