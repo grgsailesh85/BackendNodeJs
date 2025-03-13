@@ -2,18 +2,21 @@ import express from "express";
 import dotenv from "dotenv";
 import productRoutes from "./routes/productRoute.js";
 import bodyParser from "body-parser";
+import connectDB from "./config/database.js";
+
+dotenv.config(); // set up dotenv package to import the variable from .env file
 
 const port = process.env.PORT || 5000; // import the variable PORT from .env file
 
 const app = express();
 
-// parse application/x-www-form-urlencoded:- for data send from form by user 
+connectDB();
+
+// parse application/x-www-form-urlencoded:- for data send from form by user
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json :- for data from postman
 app.use(bodyParser.json());
-
-dotenv.config(); // set up dotenv package to import the variable from .env file
 
 //create route with express
 app.get("/", (req, res) => {

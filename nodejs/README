@@ -44,6 +44,7 @@
 ## package required for MERN
 - npm install dotenv  // package to use variable of .env file
 - npm install body-parser
+- npm install mongoose
 
 
 
@@ -94,12 +95,10 @@ id, name, age, address, phone
 - db.<collectionName>.updateOne()
 - for eg:- db.users.updateOne({name:"Ram"}, {$set: {age: 26}})
 
-
 **Delete**
 1. deleteOne()
 - db.<collectionName>.deleteOne()
 - for eg:- db.users.deleteOne({name:"Ram"})
-
 
 **Complex Filter**
 1. $gt/$gte => greater than or greater than equal to
