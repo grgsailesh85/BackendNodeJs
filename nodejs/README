@@ -53,6 +53,8 @@
 - Collection (table)
 - Document (Row)
 - Field (Column)
+- Schema :- Structure of Data
+- Model :- usable format of schema
 
 ## MongoDB tools
 - Shell -> Terminal
