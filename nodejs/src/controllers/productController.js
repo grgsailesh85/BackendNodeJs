@@ -2,30 +2,53 @@
 
 import productService from "../services/productService.js";
 
-const getAllProducts = (req, res) => {
-  const products = productService.getAllProducts();
+const getAllProducts = async (req, res) => {
+  const products = await productService.getAllProducts();
   res.json(products);
 };
 
-const getProductById = (req, res) => {
+const getProductById = async (req, res) => {
   const id = req.params.id;
-  const product = productService.getProductById(id);
-  if (!product) res.status(404).send("Product Not Found");
-  res.json(product);
+  try {
+    const product = await productService.getProductById(id);
+    if (!product) res.status(404).send("Product Not Found");
+    res.json(product);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 };
 
-const createProduct = (req, res) => {
-  const data = productService.createProduct(req.body);
-  res.send(data);
+const createProduct = async (req, res) => {
+  try {
+    const data = await productService.createProduct(req.body);
+    res.send(data);
+  } catch (error) {
+    res.status(500).sned(error.message);
+  }
 };
 
-const updateProduct = (req, res) => {
-  res.send("Update Products");
+const updateProduct = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const data = await productService.updateProduct(id, req.body);
+    res.send(data);
+  } catch (error) {
+    res.status(500).sned(error.message);
+  }
 };
 
-const deleteProduct = (req, res) => {
-  res.send("Delete Products");
+const deleteProduct = async (req, res) => {
+  const id = req.params.id;
+  try {
+    await productService.deleteProduct(id);
+    res.send(`Product deleted successfully of id: ${id}`);
+  } catch (error) {}
 };
+
+const getCategories = async (req, res) => {
+  const categories = await productService.getCategories()
+  res.json(categories)
+}
 
 export {
   getAllProducts,
@@ -33,4 +56,5 @@ export {
   createProduct,
   updateProduct,
   deleteProduct,
+  getCategories
 };
