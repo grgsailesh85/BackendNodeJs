@@ -23,7 +23,7 @@ const createProduct = async (req, res) => {
     const data = await productService.createProduct(req.body);
     res.send(data);
   } catch (error) {
-    res.status(500).sned(error.message);
+    res.status(500).sendd(error.message);
   }
 };
 
@@ -46,9 +46,9 @@ const deleteProduct = async (req, res) => {
 };
 
 const getCategories = async (req, res) => {
-  const categories = await productService.getCategories()
-  res.json(categories)
-}
+  const categories = await productService.getCategories();
+  res.json(categories);
+};
 
 export {
   getAllProducts,
@@ -56,5 +56,5 @@ export {
   createProduct,
   updateProduct,
   deleteProduct,
-  getCategories
+  getCategories,
 };
