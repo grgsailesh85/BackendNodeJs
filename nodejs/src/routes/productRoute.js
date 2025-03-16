@@ -7,6 +7,7 @@ import {
   getProductById,
   updateProduct,
 } from "../controllers/productController.js";
+import auth from "../middlewares/auth.js";
 
 const router = express.Router();
 
@@ -31,20 +32,20 @@ router.get("/:id", getProductById);
  * Method: POST
  * Create product
  */
-router.post("/", createProduct);
+router.post("/", auth , createProduct);
 
 /**
  * URL: /api/products/:id
  * Method: PUT
  * Update Products
  */
-router.put("/:id", updateProduct);
+router.put("/:id",auth , updateProduct);
 
 /**
  * URL: /api/products/:id
  * Method: DELETE
  * Delete Products
  */
-router.delete("/:id", deleteProduct);
+router.delete("/:id",auth , deleteProduct);
 
 export default router;

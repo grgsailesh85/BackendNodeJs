@@ -23,7 +23,7 @@ const createProduct = async (req, res) => {
     const data = await productService.createProduct(req.body);
     res.send(data);
   } catch (error) {
-    res.status(500).sendd(error.message);
+    res.status(500).send(error.message);
   }
 };
 
@@ -33,7 +33,7 @@ const updateProduct = async (req, res) => {
     const data = await productService.updateProduct(id, req.body);
     res.send(data);
   } catch (error) {
-    res.status(500).sned(error.message);
+    res.status(500).send(error.message);
   }
 };
 
