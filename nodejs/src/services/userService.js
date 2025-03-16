@@ -1,6 +1,8 @@
-import User from '../models/User.js'
+import User from "../models/User.js";
 const createUser = async (data) => {
-    return await User.create(data);
-}
+  const user = await User.create(data);
+  // await User.syncIndexes();
+  return user;
+};
 
-export default createUser
+export default { createUser };
