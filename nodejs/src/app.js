@@ -1,7 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
-import productRoutes from "./routes/productRoute.js";
 import bodyParser from "body-parser";
+
+import productRoutes from "./routes/productRoute.js";
+import userRoutes from './routes/userRoute.js'
+
 import connectDB from "./config/database.js";
 
 dotenv.config(); // set up dotenv package to import the variable from .env file
@@ -35,6 +38,11 @@ app.get("/", (req, res) => {
 
 // /api/products
 app.use("/api/products", productRoutes);
+
+// /api/users
+app.use("/api/users", userRoutes);
+
+
 
 app.get("/about", (req, res) => {
   res.send("About Page");
