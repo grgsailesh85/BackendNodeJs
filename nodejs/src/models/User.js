@@ -39,13 +39,16 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     minLength: 8, //password should be at least of 8 length
-    validate: {
-      validator: (value) => {
-        return PASSWORD_REGEX.test(value);
-      },
-      message:
-        "Password must contain uppercase, lowercase, number and special character", // if return value is false then display this message
-    },
+
+    // validate: {
+    //   validator: (value) => {
+    //     return PASSWORD_REGEX.test(value);
+    //   },
+    //   message:
+    //     "Password must contain uppercase, lowercase, number and special character", 
+    //      if return value is false then display this message
+    // },
+    
   },
   profileImageUrl: String,
   roles: {

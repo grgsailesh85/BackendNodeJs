@@ -45,6 +45,7 @@
 - npm install dotenv  // package to use variable of .env file
 - npm install body-parser
 - npm install mongoose
+- npm install bcryptjs // hashing
 
 
 
@@ -56,10 +57,12 @@
 - Schema :- Structure of Data
 - Model :- usable format of schema
 
+
 ## MongoDB tools
 - Shell -> Terminal
 - Compass -> Local GUI
 - Atlas -> Global URL 
+
 
 ## MongoDB Commands
 1. mongosh  =>  Connect with local MongoDB instance
@@ -72,6 +75,7 @@ users
 id, name, age, address, phone
 1, sailesh, 26, chitwan, 9811111
 2, gurung, 25, null, null
+
 
 ## MongoDB Query
 **Create**
@@ -111,3 +115,17 @@ id, name, age, address, phone
 
 3. $eq/$ne => equal to or not equal to
 
+
+
+## Encryption
+- Hello -> asdafdajb : Encryption
+- asdafdajb -> Hello : Decryption
+
+## Hashing 
+- One way encryption 
+- Can not be converted back into original format i.e it cannot be decrypted back
+
+## Salt 
+- Extra addition character added to hash 
+
+## JSON web token JWT
