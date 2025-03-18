@@ -1,11 +1,11 @@
 export function formatUserData(data) {
   return {
     address: data.address,
-    name: data.name,
+    createdAt: data.createdAt,
     email: data.email,
+    id: data.id,
+    name: data.name,
     phone: data.phone,
     roles: data.roles,
-    createdAt: data.createdAt,
-    id: data._id,
   };
 }
