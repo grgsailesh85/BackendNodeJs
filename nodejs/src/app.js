@@ -47,7 +47,7 @@ app.use("/api/products", productRoutes);
 // /api/users
 app.use("/api/users", userRoutes);
 
-app.use("/api/auth/login", authRoutes);
+app.use("/api/auth", authRoutes);
 
 app.get("/about", (req, res) => {
   res.send("About Page");
