@@ -42,10 +42,12 @@
 3. 500 - range => Error by server
 
 ## package required for MERN
+- npm install express
 - npm install dotenv  // package to use variable of .env file
 - npm install body-parser
 - npm install mongoose
-- npm install bcryptjs // hashing
+- npm install bcryptjs // hashing the password
+- npm install jsonwebtoken //JWT
 
 
 
@@ -116,7 +118,6 @@ id, name, age, address, phone
 3. $eq/$ne => equal to or not equal to
 
 
-
 ## Encryption
 - Hello -> asdafdajb : Encryption
 - asdafdajb -> Hello : Decryption
@@ -129,3 +130,16 @@ id, name, age, address, phone
 - Extra addition character added to hash 
 
 ## JSON web token JWT
+- Create a unique token of auth (logged in) user.
+- Divided into three part
+- Header | Body | Signature
+- For eg:- abcdefg.hijklmnop.qrstuvwxyz 
+- Header:-abcdefg, Body:-hijklmnop, Signature:-qrstuvwxyz
+- Header:- Description , Body:- Data, Signature:- Verify the used token
+
+## Method to store token and test
+Store the created token
+- Session storage
+- Local storage
+- Cookie
+
