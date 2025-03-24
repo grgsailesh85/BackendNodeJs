@@ -18,9 +18,9 @@ const login = async (req, res) => {
 
     const token = createJWT(formattedData);
 
-    console.log(token)
+    res.cookie("authToken", token)
 
-    res.cookie("userId", data._id);
+    // res.cookie("userId", data._id); 
 
     res.json(formattedData);
   } catch (error) {

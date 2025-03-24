@@ -143,3 +143,22 @@ Store the created token
 - Local storage
 - Cookie
 
+1. Cookie
+- Storage that can be stored in both client( Browser ) and server
+- Capacity:- 4kB
+- Available throughout the browser
+- Expiry date can be set
+
+
+2. Session Storage
+- Can not be stored in server but only in client/browser only
+- Capacity:- 5MB
+- Available in only one tab
+- Expires on tab close
+
+
+3. Local Storage
+- Can not be stored in server but only in client/browser only
+- Capacity:- 5MB to 10MB
+- Available throughout the browser
+- Never expires
