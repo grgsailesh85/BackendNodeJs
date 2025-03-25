@@ -96,7 +96,7 @@ id, name, age, address, phone
 - for eg:- db.users.find()
 
 2. find(<filterObject>)
-- db.users.find({name:"John"})
+- for eg:- db.users.find({name:"John"})
 
 **Update**
 1. updateOne()
@@ -149,16 +149,19 @@ Store the created token
 - Available throughout the browser
 - Expiry date can be set
 
-
 2. Session Storage
 - Can not be stored in server but only in client/browser only
 - Capacity:- 5MB
 - Available in only one tab
 - Expires on tab close
 
-
 3. Local Storage
 - Can not be stored in server but only in client/browser only
 - Capacity:- 5MB to 10MB
 - Available throughout the browser
 - Never expires
+
+1. Generate JWT token
+2. Store JWT token in Cookie
+3. Get the token from cookie
+4. Verify the JWT token

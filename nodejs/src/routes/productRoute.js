@@ -39,7 +39,7 @@ router.post("/", auth , createProduct);
  * Method: PUT
  * Update Products
  */
-router.put("/:id",auth , updateProduct);
+router.put("/:id", auth , updateProduct);
 
 /**
  * URL: /api/products/:id

@@ -1,7 +1,7 @@
 import authService from "../services/authService.js";
 import { PASSWORD_REGEX } from "../constants/regex.js";
 import { formatUserData } from "../helpers/dataFormatter.js";
-import createJWT from "../utils/jwt.js";
+import { createJWT } from "../utils/jwt.js";
 
 const login = async (req, res) => {
   try {
@@ -17,10 +17,9 @@ const login = async (req, res) => {
     const formattedData = formatUserData(data);
 
     const token = createJWT(formattedData);
+    // console.log(token);
 
-    res.cookie("authToken", token)
-
-    // res.cookie("userId", data._id); 
+    res.cookie("authToken", token);
 
     res.json(formattedData);
   } catch (error) {
@@ -53,6 +52,13 @@ const register = async (req, res) => {
         );
 
     const data = await authService.register(req.body);
+
+    const formattedData = formatUserData(data);
+
+    const token = createJWT(formattedData);
+    // console.log(token);
+
+    res.cookie("authToken", token);
 
     res.json(formatUserData(data));
   } catch (error) {

@@ -11,7 +11,6 @@ const login = async (data) => {
       message: "User not found",
     };
   const isPasswordMatch = bcrypt.compareSync(data.password, user.password); // compare password;
-
   if (!isPasswordMatch) {
     throw {
       statusCode: 400,
@@ -39,7 +38,7 @@ const register = async (data) => {
     phone: data.phone,
     email: data.email,
     password: hashedPassword, // store hashed password in database table
-    roles: data.roles,
+    // roles: data.roles, 
   });
 };
 
