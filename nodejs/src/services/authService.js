@@ -38,7 +38,7 @@ const register = async (data) => {
     phone: data.phone,
     email: data.email,
     password: hashedPassword, // store hashed password in database table
-    // roles: data.roles, 
+    roles: data.roles,
   });
 };
 

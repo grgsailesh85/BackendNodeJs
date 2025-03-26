@@ -11,7 +11,7 @@ const getProductById = async (req, res) => {
   const id = req.params.id;
   try {
     const product = await productService.getProductById(id);
-    if (!product) res.status(404).send("Product Not Found");
+    if (!product) return res.status(404).send("Product Not Found");
     res.json(product);
   } catch (error) {
     res.status(500).send(error.message);
@@ -19,8 +19,9 @@ const getProductById = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
+  const userId = req.user.id;
   try {
-    const data = await productService.createProduct(req.body);
+    const data = await productService.createProduct(req.body,userId);
     res.json(data);
   } catch (error) {
     res.status(500).send(error.message);
@@ -42,7 +43,9 @@ const deleteProduct = async (req, res) => {
   try {
     await productService.deleteProduct(id);
     res.send(`Product deleted successfully of id: ${id}`);
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 };
 
 const getCategories = async (req, res) => {
