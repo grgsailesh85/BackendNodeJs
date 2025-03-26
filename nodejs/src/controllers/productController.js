@@ -42,7 +42,9 @@ const deleteProduct = async (req, res) => {
   try {
     await productService.deleteProduct(id);
     res.send(`Product deleted successfully of id: ${id}`);
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 };
 
 const getCategories = async (req, res) => {

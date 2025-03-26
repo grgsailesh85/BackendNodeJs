@@ -9,6 +9,7 @@ import {
 } from "../controllers/productController.js";
 import auth from "../middlewares/auth.js";
 import roleBasedAuth from "../middlewares/roleBasedAuth.js";
+import { ROLE_ADMIN } from "../constants/roles.js";
 
 const router = express.Router();
 
@@ -33,20 +34,20 @@ router.get("/:id", getProductById);
  * Method: POST
  * Create product
  */
-router.post("/", auth , createProduct);
+router.post("/", auth, createProduct);
 
 /**
  * URL: /api/products/:id
  * Method: PUT
  * Update Products
  */
-router.put("/:id", auth , updateProduct);
+router.put("/:id", auth, updateProduct);
 
 /**
  * URL: /api/products/:id
  * Method: DELETE
  * Delete Products
  */
-router.delete("/:id",auth ,roleBasedAuth("A"), deleteProduct);
+router.delete("/:id", [auth, roleBasedAuth(ROLE_ADMIN)], deleteProduct);
 
 export default router;
