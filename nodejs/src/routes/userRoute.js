@@ -7,8 +7,4 @@ const router = express.Router();
 // /api/users
 router.post("/", createUser);
 
-router.post("/test", auth, (req, res) => {
-    res.send("Test Route Auth")
-})
-
 export default router;

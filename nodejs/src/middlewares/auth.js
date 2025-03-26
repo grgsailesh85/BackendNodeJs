@@ -10,15 +10,13 @@ const auth = (req, res, next) => {
 
   verifyJWT(authToken)
     .then((data) => {
-      req.user = data
-      console.log(req.user)
+      req.user = data;
+      console.log(req.user);
       next();
     })
     .catch(() => {
       res.status(400).send("Invalid Token");
     });
-
-  next();
 };
 
 export default auth;

@@ -8,6 +8,7 @@ import {
   updateProduct,
 } from "../controllers/productController.js";
 import auth from "../middlewares/auth.js";
+import roleBasedAuth from "../middlewares/roleBasedAuth.js";
 
 const router = express.Router();
 
@@ -46,6 +47,6 @@ router.put("/:id", auth , updateProduct);
  * Method: DELETE
  * Delete Products
  */
-router.delete("/:id",auth , deleteProduct);
+router.delete("/:id",auth ,roleBasedAuth("A"), deleteProduct);
 
 export default router;
