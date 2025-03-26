@@ -48,6 +48,6 @@ router.put("/:id", auth, updateProduct);
  * Method: DELETE
  * Delete Products
  */
-router.delete("/:id", [auth, roleBasedAuth(ROLE_ADMIN)], deleteProduct);
+router.delete("/:id", auth, roleBasedAuth(ROLE_ADMIN), deleteProduct);
 
 export default router;
