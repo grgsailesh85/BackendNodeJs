@@ -1,5 +1,5 @@
 // request and response related task are done in controller
-
+import { ROLE_ADMIN } from "../constants/roles.js";
 import productService from "../services/productService.js";
 
 const getAllProducts = async (req, res) => {
@@ -30,18 +30,18 @@ const createProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
   const id = req.params.id;
-  const userId = req.user.id
+  const user = req.user;
   try {
     const product = await productService.getProductById(id);
 
     if (!product) return res.status(404).send("Product Not Found");
 
-    if(product.createdBy != userId) {
-      return res.status(403).send("Access Denied")
+    if (product.createdBy != user && !user.roles.includes(ROLE_ADMIN)) {
+      return res.status(403).send("Access Denied");
     }
 
     const data = await productService.updateProduct(id, req.body);
-    
+
     res.send(data);
   } catch (error) {
     res.status(500).send(error.message);
