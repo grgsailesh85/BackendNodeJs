@@ -39,12 +39,7 @@ const updateMerchant = async (id, data) => {
   if (data.password) updateData.password = bcrypt.hashSync(data.password)
   return await User.findByIdAndUpdate(
     id,
-    {
-      address: data.address,
-      name: data.name,
-      phone: data.phone,
-      password: hashedPassword,
-    },
+    updateData,
     { new: true }
   );
 };
