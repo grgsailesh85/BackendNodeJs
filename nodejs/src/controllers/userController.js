@@ -18,4 +18,14 @@ const createMerchant = async (req, res) => {
   }
 };
 
-export { createUser, createMerchant };
+const updateMerchant = async (req, res) => {
+  try {
+    const user = await userService.createMerchant(req.params.id,  req.body);
+    res.json(user);
+  } catch (error) {
+    res.status(error.statusCode || 500).send(error.message);
+  }
+};
+
+
+export { createUser, createMerchant, updateMerchant  };
