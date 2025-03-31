@@ -12,4 +12,7 @@ router.post("/", createUser);
 // /api/users/merchant
 router.post("/merchant", auth, roleBasedAuth(ROLE_ADMIN), createMerchant);
 
+router.put("/merchant/:id", auth, roleBasedAuth(ROLE_ADMIN), createMerchant);
+
+
 export default router;
