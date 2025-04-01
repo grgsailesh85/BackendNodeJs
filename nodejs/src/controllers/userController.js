@@ -1,6 +1,6 @@
-import userService from "../services/userService.js";
-import { formatUserData } from "../helpers/dataFormatter.js";
 import { ROLE_MERCHANT } from "../constants/roles.js";
+import { formatUserData } from "../helpers/dataFormatter.js";
+import userService from "../services/userService.js";
 
 const createUser = async (req, res) => {
   try {
@@ -45,6 +45,8 @@ const getAllUsers = async (req, res) => {
 
   res.json(formattedUsers);
 };
+
+
 
 const getUserById = async (req, res) => {
   const id = req.params.id;

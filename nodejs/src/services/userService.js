@@ -19,6 +19,7 @@ const createMerchant = async (data) => {
     };
   // hash password
   const hashedPassword = bcrypt.hashSync(data.password);
+
   return await User.create({
     address: data.address,
     name: data.name,
@@ -36,7 +37,9 @@ const updateUser = async (id, data) => {
     name: data.name,
     phone: data.phone,
   };
+
   if (data.password) updateData.password = bcrypt.hashSync(data.password);
+  
   return await User.findByIdAndUpdate(id, updateData, { new: true });
 };
 
