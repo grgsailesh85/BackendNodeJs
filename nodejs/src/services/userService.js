@@ -30,18 +30,35 @@ const createMerchant = async (data) => {
   });
 };
 
-const updateMerchant = async (id, data) => {
+const updateUser = async (id, data) => {
   const updateData = {
     address: data.address,
-    name:data.name,
-    phone: data.phone, 
-  }
-  if (data.password) updateData.password = bcrypt.hashSync(data.password)
-  return await User.findByIdAndUpdate(
-    id,
-    updateData,
-    { new: true }
-  );
+    name: data.name,
+    phone: data.phone,
+  };
+  if (data.password) updateData.password = bcrypt.hashSync(data.password);
+  return await User.findByIdAndUpdate(id, updateData, { new: true });
 };
 
-export default { createUser, createMerchant, updateMerchant };
+const deleteUser = async (id) => {
+  await User.findByIdAndDelete(id);
+};
+
+const getAllUsers = async () => {
+  const users = await User.find();
+  return users;
+};
+
+const getUserById = async (id) => {
+  const user = await User.findById(id);
+  return user;
+};
+
+export default {
+  createUser,
+  createMerchant,
+  updateUser,
+  deleteUser,
+  getAllUsers,
+  getUserById,
+};
