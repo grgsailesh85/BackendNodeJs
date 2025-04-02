@@ -5,6 +5,7 @@ import {
   getAllProducts,
   getCategories,
   getProductById,
+  getProductsByUser,
   updateProduct,
 } from "../controllers/productController.js";
 import auth from "../middlewares/auth.js";
@@ -19,6 +20,11 @@ const router = express.Router();
  * Get all Products
  */
 router.get("/", getAllProducts);
+
+
+// /api/products/users
+router.get("/users", auth, getProductsByUser);
+
 
 router.get("/categories", getCategories);
 
