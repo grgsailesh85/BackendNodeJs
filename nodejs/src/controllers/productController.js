@@ -3,9 +3,14 @@ import { ROLE_ADMIN } from "../constants/roles.js";
 import productService from "../services/productService.js";
 
 const getAllProducts = async (req, res) => {
-  const products = await productService.getAllProducts();
+  const products = await productService.getAllProducts(req.query);
   res.json(products);
 };
+
+const getProductsByUser = async (req, res) => {
+  const products = await productService.getAllProducts(req.query, req.user.id)
+  res.json(products)
+}
 
 const getProductById = async (req, res) => {
   const id = req.params.id;
@@ -70,4 +75,5 @@ export {
   updateProduct,
   deleteProduct,
   getCategories,
+  getProductsByUser
 };

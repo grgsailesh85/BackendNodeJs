@@ -39,8 +39,18 @@ const deleteUser = async (req, res) => {
   }
 };
 
-const getAllUsers = async (req, res) => {
+const getAllUsers = async (_, res) => {
   const users = await userService.getAllUsers();
+
+  const formattedUsers = users.map((user) => formatUserData(user));
+
+  res.json(formattedUsers);
+};
+
+
+const getAllCustomers = async (_, res) => {
+  const users = await userService.getAllCustomers();
+  
   const formattedUsers = users.map((user) => formatUserData(user));
 
   res.json(formattedUsers);
@@ -76,4 +86,5 @@ export {
   deleteUser,
   getAllUsers,
   getUserById,
+  getAllCustomers,
 };
