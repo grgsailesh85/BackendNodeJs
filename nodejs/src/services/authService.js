@@ -1,5 +1,6 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
+import ResetPassword from "../models/ResetPassword.js";
 
 const login = async (data) => {
   const user = await User.findOne({
@@ -42,4 +43,26 @@ const register = async (data) => {
   });
 };
 
-export default { login, register };
+const forgetPassword = async (email) => {
+  const user = await User.findOne({ email });
+
+  if (!user) {
+    throw {
+      statusCode: 404,
+      message: "User not found",
+    };
+  }
+
+  const otp = Math.floor(Math.random() * 1000000); // generate random 6 digit otp
+  await ResetPassword.create({
+    userId: user?._id,
+    token: otp,
+  });
+
+  // send email to user
+  // {{apiUrl}}/api/auth/reset-password/:userId?Token=<otp>
+
+  return {message: "Reset Password Link has been sent to yor email"}
+};
+
+export default { login, register, forgetPassword };
