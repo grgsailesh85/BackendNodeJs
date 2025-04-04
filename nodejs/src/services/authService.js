@@ -62,7 +62,37 @@ const forgetPassword = async (email) => {
   // send email to user
   // {{apiUrl}}/api/auth/reset-password/:userId?Token=<otp>
 
-  return {message: "Reset Password Link has been sent to yor email"}
+  return { message: "Reset Password Link has been sent to yor email" };
 };
 
-export default { login, register, forgetPassword };
+const resetPassword = async (userId, token, password) => {
+  const data = await ResetPassword.findOne({
+    userId,
+    expiresAt: { $gt: Date.now() },
+  });
+  if (!data || data.token !== token) {
+    throw {
+      statusCode: 400,
+      message: "Invalide Token",
+    };
+  }
+  if (data.isUsed) {
+    throw {
+      statusCode: 400,
+      message: "Token has already been used",
+    };
+  }
+
+  const hashedPassword = bcrypt.hashSync(password);
+  await User.findByIdAndUpdate(userId, {
+    password: hashedPassword,
+  });
+
+  await ResetPassword.findByIdAndUpdate(data._id, {
+    isUsed: true,
+  });
+
+  return { message: "Password reset successfully" };
+};
+
+export default { login, register, forgetPassword, resetPassword };

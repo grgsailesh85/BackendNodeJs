@@ -84,8 +84,28 @@ const forgetPassword = async (req, res) => {
   res.json(data);
 };
 
-const resetPassword = (req, res) => {
-  res, send("Reset Password");
+const resetPassword = async (req, res) => {
+  const password = req.body.password;
+
+  const confirmPassword = req.body.confirmPassword;
+
+  const token = req.query.token;
+
+  const userId = req.params.userId;
+
+  if (!password) return res.status(422).send("Passsword is required.");
+  if (!confirmPassword)
+    return res.status(422).send("Confirm Password is required.");
+
+  if (password != confirmPassword)
+    return res.status(422).send("Password do not match");
+
+  try {
+    const data = await authService.resetPassword(userId, token, password);
+    res.json(data);
+  } catch (error) {
+    res.status(error.statusCode || 500).send(error.message);
+  }
 };
 
 export { login, register, logout, forgetPassword, resetPassword };
