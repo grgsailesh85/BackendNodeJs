@@ -1,15 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
-
 import productRoutes from "./routes/productRoute.js";
 import userRoutes from "./routes/userRoute.js";
 import authRoutes from "./routes/authRoute.js";
-
 import connectDB from "./config/database.js";
 import logger from "./middlewares/logger.js";
 import auth from "./middlewares/auth.js";
 import connectCloudinary from "./config/cloudinary.js";
+import multer from "multer";
 
 dotenv.config(); // set up dotenv package to import the variable from .env file
 
@@ -19,6 +18,12 @@ const app = express();
 
 connectDB();
 connectCloudinary(); //connect to cloudinary
+
+const upload = multer({
+  storage: multer.memoryStorage(), // store image in memory
+});
+
+
 
 app.use(logger); // global scope middleware
 
@@ -47,7 +52,7 @@ app.get("/", (req, res) => {
 app.use("/api/products", productRoutes);
 
 // /api/users
-app.use("/api/users", userRoutes);
+app.use("/api/users", upload.single("image"), userRoutes);
 
 app.use("/api/auth", authRoutes);
 

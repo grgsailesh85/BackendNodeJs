@@ -1,6 +1,7 @@
 import { ROLE_MERCHANT, ROLE_USER } from "../constants/roles.js";
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
+import uploadFile from "../utils/file.js";
 
 const createUser = async (data) => {
   const user = await User.create(data);
@@ -64,8 +65,8 @@ const getUserById = async (id) => {
   return user;
 };
 
-const uploadProfileImage = () => {
-  console.log("Upload Profile Image");
+const uploadProfileImage = async (file) => {
+  return await uploadFile(file);
 };
 
 export default {
