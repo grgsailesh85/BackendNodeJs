@@ -9,6 +9,7 @@ import authRoutes from "./routes/authRoute.js";
 import connectDB from "./config/database.js";
 import logger from "./middlewares/logger.js";
 import auth from "./middlewares/auth.js";
+import connectCloudinary from "./config/cloudinary.js";
 
 dotenv.config(); // set up dotenv package to import the variable from .env file
 
@@ -17,6 +18,7 @@ const port = process.env.PORT || 5000; // import the variable PORT from .env fil
 const app = express();
 
 connectDB();
+connectCloudinary(); //connect to cloudinary
 
 app.use(logger); // global scope middleware
 
@@ -48,10 +50,6 @@ app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 
 app.use("/api/auth", authRoutes);
-
-
-
-
 
 app.get("/about", (req, res) => {
   res.send("About Page");
