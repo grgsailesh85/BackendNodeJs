@@ -178,3 +178,4 @@ Store the created token
 - npm install mongoose
 - npm install bcryptjs // hashing the password
 - npm install jsonwebtoken //JWT
+- npm i cloudinary  // store file

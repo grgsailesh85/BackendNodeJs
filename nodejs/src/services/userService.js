@@ -39,7 +39,7 @@ const updateUser = async (id, data) => {
   };
 
   if (data.password) updateData.password = bcrypt.hashSync(data.password);
-  
+
   return await User.findByIdAndUpdate(id, updateData, { new: true });
 };
 
@@ -54,7 +54,7 @@ const getAllUsers = async () => {
 
 const getAllCustomers = async () => {
   const users = await User.find({
-    roles:[ROLE_USER]
+    roles: [ROLE_USER],
   });
   return users;
 };
@@ -62,6 +62,10 @@ const getAllCustomers = async () => {
 const getUserById = async (id) => {
   const user = await User.findById(id);
   return user;
+};
+
+const uploadProfileImage = () => {
+  console.log("Upload Profile Image");
 };
 
 export default {
@@ -72,4 +76,5 @@ export default {
   getAllUsers,
   getUserById,
   getAllCustomers,
+  uploadProfileImage,
 };
