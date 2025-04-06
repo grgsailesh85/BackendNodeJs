@@ -47,35 +47,40 @@ const getAllUsers = async (_, res) => {
   res.json(formattedUsers);
 };
 
-
 const getAllCustomers = async (_, res) => {
   const users = await userService.getAllCustomers();
-  
+
   const formattedUsers = users.map((user) => formatUserData(user));
 
   res.json(formattedUsers);
 };
 
-
-
 const getUserById = async (req, res) => {
   const id = req.params.id;
-  const loggedInUser = req.user
+  const loggedInUser = req.user;
   try {
     const user = await userService.getUserById(id);
 
     if (!user) return res.status(404).send("User Not Found");
 
     if (loggedInUser.id != user.id && !user.roles.includes(ROLE_MERCHANT)) {
-      return res.status(403).send("Access denied")
+      return res.status(403).send("Access denied");
     }
 
     res.json(formatUserData(user));
-
   } catch (error) {
-
     res.status(500).send(error.message);
+  }
+};
 
+const uploadProfileImage = async (req, res) => {
+  const file = req.file;
+
+  try {
+    const data = await userService.uploadProfileImage(file);
+    res.json(data);
+  } catch (errro) {
+    res.status(500).send(error.message);
   }
 };
 
@@ -87,4 +92,5 @@ export {
   getAllUsers,
   getUserById,
   getAllCustomers,
+  uploadProfileImage,
 };
