@@ -41,15 +41,6 @@
 2. 400 - range => Error by client
 3. 500 - range => Error by server
 
-## package required for MERN
-- npm install express
-- npm install dotenv  // package to use variable of .env file
-- npm install body-parser
-- npm install mongoose
-- npm install bcryptjs // hashing the password
-- npm install jsonwebtoken //JWT
-
-
 
 ## MongoDB
 - Non-relational Database
@@ -165,3 +156,25 @@ Store the created token
 2. Store JWT token in Cookie
 3. Get the token from cookie
 4. Verify the JWT token
+
+
+## File Upload
+- .txt, .png, .mp4, .docx, .xlsx
+- Store in bucket
+- FileUrl => cloudUrl/dir/file.txt
+- DB => fileURL
+
+- Steps
+1. Store file in Bucket
+2. Get the file url from bucket
+3. Store file URL in the DB 
+
+
+
+## package required for MERN
+- npm install express
+- npm install dotenv  // package to use variable of .env file
+- npm install body-parser
+- npm install mongoose
+- npm install bcryptjs // hashing the password
+- npm install jsonwebtoken //JWT
