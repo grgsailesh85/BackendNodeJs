@@ -7,5 +7,6 @@ export function formatUserData(data) {
     name: data.name,
     phone: data.phone,
     roles: data.roles,
+    profileImageUrl: data.profileImageUrl,
   };
 }

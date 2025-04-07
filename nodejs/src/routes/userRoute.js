@@ -33,7 +33,7 @@ router.get("/customers", auth, roleBasedAuth(ROLE_MERCHANT), getAllCustomers);
 
 router.get("/:id", auth, getUserById);
 
-router.put("/:id/upload", auth, uploadProfileImage)
+router.put("/profile/upload", auth, uploadProfileImage)
 
 
 export default router;
