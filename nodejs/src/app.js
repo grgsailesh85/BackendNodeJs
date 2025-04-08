@@ -23,8 +23,6 @@ const upload = multer({
   storage: multer.memoryStorage(), // store image in memory
 });
 
-
-
 app.use(logger); // global scope middleware
 
 // parse application/x-www-form-urlencoded:- for data send from form by user
@@ -49,7 +47,7 @@ app.get("/", (req, res) => {
 });
 
 // /api/products
-app.use("/api/products", productRoutes);
+app.use("/api/products", upload.array("images", 5), productRoutes);
 
 // /api/users
 app.use("/api/users", upload.single("image"), userRoutes);
