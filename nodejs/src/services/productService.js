@@ -1,5 +1,6 @@
 // Database related Task
 import Product from "../models/Product.js";
+import uploadFile from "../utils/file.js";
 
 // 1. Sort: { fieldName:ORDER } => for e.g { price: -1 } 1: ASC | -1: DESC
 
@@ -28,8 +29,7 @@ const getAllProducts = async (query, userId) => {
   if (min) filters.price = { $gte: parseFloat(min) };
   if (max) filters.price = { ...filters.price, $lte: parseFloat(max) };
 
-  if(userId) filters.createdBy = userId
-
+  if (userId) filters.createdBy = userId;
 
   const products = await Product.find(filters)
     .sort(sort)
@@ -43,14 +43,31 @@ const getProductById = async (id) => {
   return product;
 };
 
-const createProduct = async (data, userId) => {
-  return await Product.create({ ...data, createdBy: userId });
+const createProduct = async (data, files, userId) => {
+  const uploadedFiles = await uploadFile(files);
+
+  // console.log(uploadedFiles)
+
+  return await Product.create({
+    ...data,
+    createdBy: userId,
+    imageUrls: uploadedFiles.map((item) => item?.url),
+  });
 };
 
-const updateProduct = async (id, data) => {
-  return await Product.findByIdAndUpdate(id, data, {
-    new: true,
-  });
+const updateProduct = async (id, data, files) => {
+  const uploadedFiles = await uploadFile(files);
+  
+  return await Product.findByIdAndUpdate(
+    id,
+    {
+      ...data,
+      imageUrls: uploadedFiles.map((item) => item?.url),
+    },
+    {
+      new: true,
+    }
+  );
 };
 
 const deleteProduct = async (id) => {
