@@ -1,4 +1,10 @@
 import mongoose from "mongoose";
+import {
+  ORDER_STATUS_CONFIRMED,
+  ORDER_STATUS_DELIVERED,
+  ORDER_STATUS_PENDING,
+  ORDER_STATUS_SHIPPED,
+} from "../constants/orderStatus.js";
 
 const orderSchema = new mongoose.Schema({
   orderNumber: {
@@ -29,12 +35,25 @@ const orderSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: "pending",
-    enum: ["pending", "confirmed", "shipped", "delivered"],
+    default: ORDER_STATUS_PENDING,
+    enum: [
+      ORDER_STATUS_PENDING,
+      ORDER_STATUS_CONFIRMED,
+      ORDER_STATUS_DELIVERED,
+      ORDER_STATUS_SHIPPED,
+    ],
   },
   shippingAddress: {
-    type: String,
-    required: true,
+    city: {
+      type: String,
+      required: true,
+    },
+    country: {
+      type: String,
+      default: "Nepal",
+    },
+    province: String,
+    street: String,
   },
   createdAt: {
     type: Date,

@@ -4,9 +4,9 @@ import bodyParser from "body-parser";
 import productRoutes from "./routes/productRoute.js";
 import userRoutes from "./routes/userRoute.js";
 import authRoutes from "./routes/authRoute.js";
+import orderRoutes from "./routes/orderRoute.js";
 import connectDB from "./config/database.js";
 import logger from "./middlewares/logger.js";
-import auth from "./middlewares/auth.js";
 import connectCloudinary from "./config/cloudinary.js";
 import multer from "multer";
 
@@ -54,6 +54,10 @@ app.use("/api/users", upload.single("image"), userRoutes);
 
 app.use("/api/auth", authRoutes);
 
+app.use("/api/orders", orderRoutes);
+
+
+// 
 app.get("/about", (req, res) => {
   res.send("About Page");
 });
