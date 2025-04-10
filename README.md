@@ -1,39 +1,46 @@
 # Node.js, Express & MongoDB Backend Learning
 
 Welcome to my backend learning repository! 🚀  
-This repo documents my journey into backend development using **Node.js**, **Express.js**, and **MongoDB**.  
-It includes mini-projects, best practices, and real-world features like **e-commerce API** development and **user authentication**.
+This repo showcases my hands-on experience with backend development using **Node.js**, **Express.js**, and **MongoDB**.  
+It includes a full **e-commerce API**, **user authentication**, and **Khalti payment gateway integration**.
 
 ---
 
 ## 🧠 What You'll Find Here
 
-- RESTful e-commerce API (Products, Orders)
-- Full-featured **User Authentication** (JWT, bcrypt)
-- Role-based access control (Admin/User/Merchant)
-- CRUD operations using Express and MongoDB
-- API design with proper routing, validation & error handling
-- MongoDB integration using Mongoose
-- Environment variable management with `dotenv`
+- RESTful E-commerce API (Product, Cart, Orders)
+- User Authentication using JWT & bcrypt
+- Role-based access control (Admin/User)
+- MongoDB database design using Mongoose
+- Middleware & validation handling
+- **Khalti Payment Gateway** integration
+- Environment setup using `dotenv`
 
 ---
 
 ## 🛒 E-commerce API Features
 
-- Add, update, delete products (Admin only)
-- View product list and single product details
-- Cart operations: add/remove/update items
-- Place orders (Authenticated users only)
+- Product CRUD operations (Admin)
+- Cart management: add/update/remove items
+- Place and view orders (Authenticated users)
+- Order status updates (Admin)
 
 ---
 
 ## 🔐 Authentication Features
 
-- Register and login with email & password
-- Password hashing with bcrypt
-- JWT-based session management
-- Route protection using middleware
-- User roles: Admin, Customer and Merchant
+- User registration & login
+- Password hashing (bcrypt)
+- JWT-based authentication
+- Route protection & role checks
+
+---
+
+## 💳 Khalti Payment Integration
+
+- Verified payments through **Khalti API**
+- Secure backend implementation for payment verification
+- Linked to order processing and status update
 
 ---
 
@@ -44,15 +51,17 @@ It includes mini-projects, best practices, and real-world features like **e-comm
 | Node.js     | JavaScript runtime                     |
 | Express.js  | Web framework                          |
 | MongoDB     | NoSQL database                         |
-| Mongoose    | ODM for MongoDB                        |
-| JWT         | JSON Web Token for authentication      |
+| Mongoose    | MongoDB object modeling                |
+| JWT         | User authentication                    |
 | bcrypt      | Password hashing                       |
-| Postman     | API testing                            |
-| dotenv      | Manage environment variables           |
+| Khalti API  | Payment gateway                        |
+| dotenv      | Environment variables                  |
 
 ---
 
 ## 📁 Project Structure
+
+
 
 ```
 📁Repo
