@@ -74,10 +74,25 @@ const updateOrderStatus = async (req, res) => {
   }
 };
 
+const deleteOrder = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    await orderService.getOrderById(id);
+
+    await orderService.deleteOrder(id);
+
+    res.send("Order deleted successfully");
+  } catch (error) {
+    res.status(error.statusCode || 500).send(error.message);
+  }
+};
+
 export {
   getAllOrders,
   createOrder,
   getOrdersByUser,
   getOrderById,
   updateOrderStatus,
+  deleteOrder,
 };

@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createOrder,
+  deleteOrder,
   getAllOrders,
   getOrderById,
   getOrdersByUser,
@@ -19,8 +20,10 @@ router.get("/user/:userId", auth, getOrdersByUser);
 
 router.get("/:id", auth, getOrderById);
 
+router.post("/", auth, createOrder);
+
 router.put("/:id/status", auth, roleBasedAuth(ROLE_ADMIN), updateOrderStatus);
 
-router.post("/", auth, createOrder);
+router.delete("/:id", auth, roleBasedAuth(ROLE_ADMIN), deleteOrder);
 
 export default router;

@@ -182,3 +182,10 @@ Store the created token
 - npm install jsonwebtoken //JWT
 - npm install cloudinary  // store file
 - npm install multer // handle multipart/form-data, primarily used for uploading files
+
+
+## Payment
+1. Gather required data for payment, for eg:- user, price, currency, amount
+2. Payment method integration, for eg:- khalti
+3. Payment status- success/failure, transactionId
+4. Update payment status/results

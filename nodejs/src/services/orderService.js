@@ -52,10 +52,15 @@ const updateOrderStatus = async (id, status) => {
   );
 };
 
+const deleteOrder = async (id) => {
+  return await Order.findByIdAndDelete(id);
+};
+
 export default {
   getAllOrders,
   createOrder,
   getOrdersByUser,
   getOrderById,
   updateOrderStatus,
+  deleteOrder,
 };
