@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  checkoutOrder,
   createOrder,
   deleteOrder,
   getAllOrders,
@@ -23,6 +24,8 @@ router.get("/:id", auth, getOrderById);
 router.post("/", auth, createOrder);
 
 router.put("/:id/status", auth, roleBasedAuth(ROLE_ADMIN), updateOrderStatus);
+
+router.put("/:id/checkout", auth, checkoutOrder);
 
 router.delete("/:id", auth, roleBasedAuth(ROLE_ADMIN), deleteOrder);
 
