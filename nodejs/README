@@ -178,6 +178,15 @@ Store the created token
 4. Update payment status/results
 
 
+## Debugging 
+1. Root file (src/app.js)
+2. Routes
+3. Middleware
+4. Controller
+5. Service
+6. Helper/util functions
+
+
 
 ## package required for MERN
 - npm install express
