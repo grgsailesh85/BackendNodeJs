@@ -186,6 +186,11 @@ Store the created token
 5. Service
 6. Helper/util functions
 
+## Semantic Coding
+1. Variables, Constants, Data types, Params, Args, File name: Noun
+2. Method, Function: Verb
+
+
 
 
 ## package required for MERN
