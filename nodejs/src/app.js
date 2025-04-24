@@ -31,6 +31,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json :- for data from postman
 app.use(bodyParser.json());
 
+app.set("view engine", "hbs"); //set view engine to hbs
+
 //create route with express
 app.get("/", (req, res) => {
   // res.send("<h1>hello sailesh</h1>")
@@ -56,11 +58,18 @@ app.use("/api/auth", authRoutes);
 
 app.use("/api/orders", orderRoutes);
 
-
-// 
+//
 app.get("/about", (req, res) => {
   res.send("About Page");
 });
+
+// renders hbs file from views folder
+app.get("/home", (req, res) => {
+  res.render("home", {
+    username: "Sailesh",
+  });
+});
+
 app.post("/about", (req, res) => {
   res.send("create data on about page");
 });

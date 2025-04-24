@@ -203,5 +203,6 @@ Store the created token
 - npm install cloudinary  // store file
 - npm install multer // handle multipart/form-data, primarily used for uploading files
 - npm install axios
+- npm install hbs // handlebars engine to render the template
 
 
