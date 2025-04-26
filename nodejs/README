@@ -190,7 +190,8 @@ Store the created token
 1. Variables, Constants, Data types, Params, Args, File name: Noun
 2. Method, Function: Verb
 
-
+## nginx
+-> It’s often used for hosting websites, setting up APIs, handling HTTPS, and even sitting in front of application servers like Node.js, Python (Django/Flask), or PHP
 
 
 ## package required for MERN
