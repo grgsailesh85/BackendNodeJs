@@ -5,6 +5,7 @@ import productRoutes from "./routes/productRoute.js";
 import userRoutes from "./routes/userRoute.js";
 import authRoutes from "./routes/authRoute.js";
 import orderRoutes from "./routes/orderRoute.js";
+import viewRoutes from "./routes/viewRoute.js";
 import connectDB from "./config/database.js";
 import logger from "./middlewares/logger.js";
 import connectCloudinary from "./config/cloudinary.js";
@@ -57,6 +58,8 @@ app.use("/api/users", upload.single("image"), userRoutes);
 app.use("/api/auth", authRoutes);
 
 app.use("/api/orders", orderRoutes);
+
+app.use("/page", viewRoutes);
 
 //
 app.get("/about", (req, res) => {
