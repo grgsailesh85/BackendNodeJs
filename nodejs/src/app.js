@@ -43,8 +43,10 @@ app.get("/", (req, res) => {
   // If no any status is send then by default 200 status is send
   // res.send("HomePage");
   res.json({
+    name: "nodejs",
     status: "OK",
     verison: "1.0.0",
+    url : "https://backend-node-js-eta.vercel.app/",
     port: port,
   });
 });
